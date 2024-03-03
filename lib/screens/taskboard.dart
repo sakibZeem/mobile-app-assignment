@@ -13,7 +13,6 @@ class _TaskBoardState extends State<TaskBoard> {
   String time = DateFormat('h:mm a d\'th\' MMM, yyyy').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
-    // var time = DateTime.now();
 
     return Scaffold(
       appBar: AppBar(
@@ -23,27 +22,10 @@ class _TaskBoardState extends State<TaskBoard> {
           ),
           centerTitle: true),
       body: ListView.builder(
+          itemCount: cards.length,
           itemBuilder: (context, index) {
-            return Card(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              elevation: 4.0,
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: [
-                    Text('Task ${index + 1}', textAlign: TextAlign.start, style: const TextStyle(fontWeight: FontWeight.w700),),
-                    const Text(
-                        "Your Personal task management and planning solution for planning your day, week & months"),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [Text(time)],
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-          itemCount: cards.length),
+            return cards[index];
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
@@ -54,7 +36,7 @@ class _TaskBoardState extends State<TaskBoard> {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-                    Text('Task ${cards.length}'),
+                    Text('Task ${cards.length + 1}', style: TextStyle(fontWeight: FontWeight.w700),),
                     const Text(
                         "Your Personal task management and planning solution for planning your day, week & months"),
                     Row(
