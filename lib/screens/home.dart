@@ -37,23 +37,19 @@ class _HomeState extends State<Home> {
                 const SizedBox(
                   height: 10,
                 ),
-                InkWell(
-                  onTap: () {
-                    print('clicked');
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => TaskBoard()));
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.black87,
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    child: const Text(
-                      "Let's get started",
-                      style: TextStyle(color: Colors.white70),
-                    ),
+                Material(
+                  color: Colors.black87,
+                  borderRadius: BorderRadius.circular(5.0),
+                  clipBehavior: Clip.hardEdge,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => TaskBoard()));
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+                      child: Text("Let's get started", style: TextStyle(color: Colors.white),),
+                    )
                   ),
                 ),
                 const SizedBox(height: 50,)

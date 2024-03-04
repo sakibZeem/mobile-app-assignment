@@ -10,10 +10,10 @@ class TaskBoard extends StatefulWidget {
 
 class _TaskBoardState extends State<TaskBoard> {
   List<Card> cards = [];
-  String time = DateFormat('h:mm a d\'th\' MMM, yyyy').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
-
+    String time = DateFormat('h:mm a d\'th\' MMM, yyyy').format(DateTime.now());
     return Scaffold(
       appBar: AppBar(
           title: const Text(
